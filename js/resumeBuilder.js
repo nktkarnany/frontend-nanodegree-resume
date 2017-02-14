@@ -70,7 +70,13 @@ var projects = {
             title: "Money Report",
             dates: "September'15",
             description: "An app to keep track of your expenses. It reads all your transactional messages, parses it and calculates the amount debited or credited. A graphical report of expenses can also be viewed with daily, weekly and monthly filter.",
-            images: ["", ""]
+            images: ["images/mr1.jpg", "images/mr2.jpg", "images/mr3.jpg"]
+        },
+        {
+            title: "Delivery Hobbit",
+            dates: "January'15",
+            description: "An crowdshipping app to connect travellers with senders. It could add requests if there were no travellers and send notifications if a traveller registers.",
+            images: ["images/dh1.jpg", "images/dh2.jpg", "images/dh3.jpg"]
         }
     ],
     display: function () {
@@ -79,7 +85,7 @@ var projects = {
             $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", project.title));
             $(".project-entry:last").append(HTMLprojectDates.replace("%data%", project.dates));
             $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", project.description));
-            project.images.forEach(function(img){
+            project.images.forEach(function (img) {
                 $(".project-entry:last").append(HTMLprojectImage.replace("%data%", img));
             });
         });
@@ -91,37 +97,49 @@ projects.display();
 var education = {
     schools: [
         {
-            name: "carmel school",
-            location: "jorhat",
+            name: "Mount Carmel School",
+            location: "Jorhat, Assam, IN",
             degreeDates: "2009",
             url: "",
-            majors: ["x"]
+            majors: ["Class X"]
+        },
+        {
+            name: "VNIT",
+            location: "Nagpur, MH, IN",
+            degreeDates: "2015",
+            url: "http://www.vnit.ac.in/",
+            majors: ["BTECH in Chemical Engineering"]
         }
     ],
     onlineCourses: [
         {
-            title: "asdasd",
-            school: "asdasd",
-            dates: "asdasd",
-            url: "asdad"
+            title: "An Introduction to Interactive Programming in Python",
+            school: "Coursera",
+            dates: "June'13",
+            url: "https://www.coursera.org/maestro/api/certificate/get_certificate?course_id=970391"
         }
-    ]
+    ],
+    display: function () {
+        education.schools.forEach(function (school) {
+            $("#education").append(HTMLschoolStart);
+            $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.url));
+            $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.degreeDates));
+            $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
+            $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", school.majors[0]));
+        });
+
+        education.onlineCourses.forEach(function (course) {
+            $(".education-entry:last").append(HTMLonlineClasses);
+            $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", course.title) + HTMLonlineSchool.replace("%data%", course.school));
+            $(".education-entry:last").append(HTMLonlineDates.replace("%data%", course.dates));
+            $(".education-entry:last").append(HTMLonlineURL.replace("%data%", course.url));
+        });
+    }
 };
 
-education.schools.forEach(function (school) {
-    $("#education").append(HTMLschoolStart);
-    $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.url));
-    $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.degreeDates));
-    $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
-    $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", school.majors[0]));
-});
+education.display();
 
-education.onlineCourses.forEach(function (course) {
-    $(".education-entry:last").append(HTMLonlineClasses);
-    $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", course.title) + HTMLonlineSchool.replace("%data%", course.school));
-    $(".education-entry:last").append(HTMLonlineDates.replace("%data%", course.dates));
-    $(".education-entry:last").append(HTMLonlineURL.replace("%data%", course.url));
-});
+$("#mapDiv").append(googleMap);
 
 $("#main").append(internationalizeButton);
 
@@ -131,5 +149,3 @@ var inName = function (name) {
 
     return arr[0][0] + arr[0].slice(1).toLowerCase() + " " + arr[1].toUpperCase();
 }
-
-$("#mapDiv").append(googleMap);
