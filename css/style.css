@@ -26,7 +26,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #c8ea0a;
   line-height: 48px;
   display: inline;
 }
@@ -100,16 +100,16 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #d5f523;
   display: none;
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #d5f523;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #d5f523;
 }
 
 .white-text {
@@ -169,6 +169,7 @@ img {
 
 span {
   padding: 5px;
+    color: white;
 }
 
 #lets-connect {
